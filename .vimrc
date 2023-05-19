@@ -1,20 +1,22 @@
-filetype on
-filetype indent on
-filetype plugin on
-syntax on
+" From https://github.com/VundleVim/Vundle.vim
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-set nu
-set rnu
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'scrooloose/nerdtree'
+call vundle#end()            " required
+filetype plugin indent on    " required
 
-" From https://gist.github.com/LunarLambda/4c444238fb364509b72cfb891979f1dd
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=-1
 set smarttab
+set nu
+set rnu
 
 autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
-
-" mkdir -p ~/.vim/pack/vendor/start
-" git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
-" git clone https://github.com/ctrlpvim/ctrlp.vim ~/.vim/pack/vendor/start/ctrlp
