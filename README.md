@@ -1,6 +1,17 @@
 # dotfiles
 
+
 https://www.atlassian.com/git/tutorials/dotfiles
+
+```
+echo ".cfg" >> .gitignore
+git clone --bare git@github.com:droidkid/dotfiles $HOME/.cfg
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+mkdir -p .config-backup && \
+config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
+xargs -I{} mv {} .config-backup/{}
+config checkout
+```
 
 Install Vundle:  https://github.com/VundleVim/Vundle.vim#quick-start
 
