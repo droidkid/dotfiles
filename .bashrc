@@ -119,3 +119,10 @@ fi
 
 # https://www.atlassian.com/git/tutorials/dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+PATH=$PATH:~/bin:~/bin/bin
+
+alias tmux_color='tmux -2'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export REVIEW_BASE=HEAD^
