@@ -83,15 +83,15 @@ success "System packages installed."
 info "Setting up bare git repo for dotfiles"
 
 if [ -d "$CFG_DIR" ]; then
-  info "$CFG_DIR already exists, fetching latest changes."
-  config fetch origin master
-else
-  git clone --bare "$DOTFILES_REPO" "$CFG_DIR"
-  success "Bare repo cloned to $CFG_DIR"
+  info "$CFG_DIR already exists, removing to re-clone."
+  rm -rf "$CFG_DIR"
 fi
 
+git clone --bare "$DOTFILES_REPO" "$CFG_DIR"
+success "Bare repo cloned to $CFG_DIR"
+
 # Checkout dotfiles into $HOME (backed-up files will be overwritten)
-config reset --hard origin/master
+config checkout -f
 config config --local status.showUntrackedFiles no
 
 success "Dotfiles checked out into \$HOME."
