@@ -70,7 +70,7 @@ info "Installing system packages via apt"
 
 sudo apt update && sudo apt install -y \
   git curl vim neovim tmux \
-  fzf universal-ctags jq \
+  fzf universal-ctags jq clang-format \
   i3 i3status i3lock xss-lock dex dmenu arandr \
   texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
 
