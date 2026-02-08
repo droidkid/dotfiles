@@ -83,19 +83,18 @@ success "System packages installed."
 info "Setting up bare git repo for dotfiles"
 
 if [ -d "$CFG_DIR" ]; then
-  warn "$CFG_DIR already exists, skipping bare repo clone."
+  info "$CFG_DIR already exists, fetching latest changes."
+  config fetch origin master
 else
   git clone --bare "$DOTFILES_REPO" "$CFG_DIR"
   success "Bare repo cloned to $CFG_DIR"
 fi
 
 # Checkout dotfiles into $HOME (backed-up files will be overwritten)
-config checkout -f
+config reset --hard origin/master
 config config --local status.showUntrackedFiles no
 
 success "Dotfiles checked out into \$HOME."
-
-exit
 
 ###############################################################################
 # 4. Install Vundle and Vim plugins
