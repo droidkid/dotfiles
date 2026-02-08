@@ -95,6 +95,8 @@ config config --local status.showUntrackedFiles no
 
 success "Dotfiles checked out into \$HOME."
 
+exit
+
 ###############################################################################
 # 4. Install Vundle and Vim plugins
 ###############################################################################
@@ -117,7 +119,7 @@ success "Vim plugins installed."
 ###############################################################################
 
 info "Installing Neovim plugins via lazy.nvim (this may take a moment)"
-nvim --headless "+Lazy! sync" +qa
+nvim --headless '+Lazy! sync' +qa
 success "Neovim plugins installed."
 
 ###############################################################################
