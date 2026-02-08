@@ -17,6 +17,7 @@ DOTFILES_TO_BACKUP=(
   "$HOME/.vimrc"
   "$HOME/.tmux.conf"
   "$HOME/.config/i3/config"
+  "$HOME/.config/nvim/init.lua"
 )
 
 ###############################################################################
@@ -68,7 +69,7 @@ fi
 info "Installing system packages via apt"
 
 sudo apt update && sudo apt install -y \
-  git curl vim tmux \
+  git curl vim neovim tmux \
   fzf universal-ctags jq \
   i3 i3status i3lock xss-lock dex dmenu arandr \
   texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
