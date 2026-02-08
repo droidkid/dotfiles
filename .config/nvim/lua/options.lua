@@ -12,6 +12,9 @@ opt.foldmethod = "manual"
 opt.cursorline = true
 opt.termguicolors = true
 
+opt.textwidth = 80
+opt.colorcolumn = "80"
+
 opt.diffopt:append("vertical")
 
 -- Makefiles need tabs

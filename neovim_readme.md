@@ -28,6 +28,10 @@ Leader key: `<Space>`
 | `<Space>f` | Format buffer |
 | `<Space>z` | Zen mode |
 
+## Line Wrapping
+
+Auto hard-wrap is enabled at 80 columns for new text. To turn off the visual column guide: `:set colorcolumn=`
+
 ## LSP Setup
 
 On first launch, run `:Mason` to open the LSP server manager. `clangd` (C/C++) and `lua_ls` (Lua) are configured to auto-install. To add more servers, install them via Mason and add their setup call in `.config/nvim/lua/plugins/lsp.lua`.
