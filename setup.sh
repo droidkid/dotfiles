@@ -113,7 +113,15 @@ vim +PluginInstall +qall
 success "Vim plugins installed."
 
 ###############################################################################
-# 5. Install Rust via rustup
+# 5. Install Neovim plugins (lazy.nvim)
+###############################################################################
+
+info "Installing Neovim plugins via lazy.nvim (this may take a moment)"
+nvim --headless "+Lazy! sync" +qa
+success "Neovim plugins installed."
+
+###############################################################################
+# 6. Install Rust via rustup
 ###############################################################################
 
 info "Installing Rust via rustup"

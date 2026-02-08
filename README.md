@@ -9,6 +9,8 @@ The setup script should do the needful. Just run:
 $ ./setup.sh
 ```
 
+**Note:** `setup.sh` clones from the remote repo, so any local changes must be pushed before running it on a new machine.
+
 The setup script was generated with the help of Claude Code.
 
 # Other packages
