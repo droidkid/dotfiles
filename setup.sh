@@ -90,6 +90,9 @@ fi
 git clone --bare "$DOTFILES_REPO" "$CFG_DIR"
 success "Bare repo cloned to $CFG_DIR"
 
+# Clear existing nvim config so removed files don't linger
+rm -rf "$HOME/.config/nvim"
+
 # Checkout dotfiles into $HOME (backed-up files will be overwritten)
 config checkout -f
 config config --local status.showUntrackedFiles no
