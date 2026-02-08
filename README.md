@@ -1,7 +1,15 @@
 # dotfiles
 
 
-https://www.atlassian.com/git/tutorials/dotfiles
+Source: https://www.atlassian.com/git/tutorials/dotfiles
+
+The setup script should do the needful. Just run:
+
+```
+$ ./setup.sh
+```
+
+The setup script was generated with the help of Claude Code.
 
 # Other packages
 

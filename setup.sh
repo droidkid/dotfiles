@@ -14,7 +14,6 @@ BACKUP_DIR="$HOME/dotfiles_backup_$(date +%Y%m%d_%H%M%S)"
 # Files to back up before overwriting
 DOTFILES_TO_BACKUP=(
   "$HOME/.bashrc"
-  "$HOME/.zshrc"
   "$HOME/.vimrc"
   "$HOME/.tmux.conf"
   "$HOME/.config/i3/config"
@@ -69,7 +68,7 @@ fi
 info "Installing system packages via apt"
 
 sudo apt update && sudo apt install -y \
-  git curl zsh vim tmux \
+  git curl vim tmux \
   fzf universal-ctags jq \
   i3 i3status i3lock xss-lock dex dmenu arandr \
   texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
@@ -96,26 +95,7 @@ config config --local status.showUntrackedFiles no
 success "Dotfiles checked out into \$HOME."
 
 ###############################################################################
-# 4. Install Oh My Zsh
-###############################################################################
-
-info "Installing Oh My Zsh"
-
-if [ -d "$HOME/.oh-my-zsh" ]; then
-  warn "Oh My Zsh already installed, skipping."
-else
-  # Unattended install (won't switch shell or start zsh)
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-  success "Oh My Zsh installed."
-fi
-
-# Oh My Zsh overwrites .zshrc, so re-checkout ours from the bare repo
-info "Restoring .zshrc from dotfiles repo"
-config checkout -f -- .zshrc
-success ".zshrc restored."
-
-###############################################################################
-# 5. Install Vundle and Vim plugins
+# 4. Install Vundle and Vim plugins
 ###############################################################################
 
 info "Installing Vundle and Vim plugins"
@@ -132,7 +112,7 @@ vim +PluginInstall +qall
 success "Vim plugins installed."
 
 ###############################################################################
-# 6. Install Rust via rustup
+# 5. Install Rust via rustup
 ###############################################################################
 
 info "Installing Rust via rustup"
@@ -147,7 +127,7 @@ else
 fi
 
 ###############################################################################
-# 7. Post-install summary
+# 6. Post-install summary
 ###############################################################################
 
 echo ""
@@ -158,12 +138,8 @@ echo ""
 echo "  Backups:      $BACKUP_DIR"
 echo "  Bare repo:    $CFG_DIR"
 echo "  Vundle:       ~/.vim/bundle/Vundle.vim"
-echo "  Oh My Zsh:    ~/.oh-my-zsh"
 echo ""
 echo "  Remaining manual steps:"
-echo "    1. Change default shell to zsh:"
-echo "         chsh -s \$(which zsh)"
-echo "    2. Log out and back in for i3 and shell changes to take effect"
-echo "    3. Ensure your SSH key is added to the ssh-agent for the config alias"
+echo "    1. Log out and back in for i3 and shell changes to take effect"
 echo ""
 success "Done!"
