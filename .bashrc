@@ -119,7 +119,7 @@ fi
 
 # https://www.atlassian.com/git/tutorials/dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-PATH=$PATH:~/bin:~/bin/bin:/usr/local/:~/.npm-global/
+PATH=$PATH:~/bin:~/bin/bin:/usr/local/:~/.npm-global/bin
 
 alias tmux_color='tmux -2'
 
